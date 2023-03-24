@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/e03eaf0f95.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body id="bod">
+    <form action="">
+        <input list="flavors">
+        <datalist id="flavors">
+            <option>Chocolate</option>
+            <option>Coconut</option>
+            <option>Mint</option>
+            <option>Strawberry</option>
+            <option>Vanilla</option>
+        </datalist>
+    </form>
+
+    <form action="">
+        <select id="flavor">
+            <option>Chocolate</option>
+            <option>Coconut</option>
+            <option>Mint</option>
+            <option>Strawberry</option>
+            <option>Vanilla</option>
+        </select>
+    </form>
+
+    <form action="">
+        <fieldset>
+            <legend>Choose your favorite monster</legend>
+            <input type="radio" name="monst">Kraken</input><br>
+            <input type="radio" name="monst">Sasquatch</input><br>
+            <input type="radio" name="monst">Mothman</input><br>
+        </fieldset>
+    </form>
+
+    <form>
+    0<input type="range"  id="rang" min="0" max="100" oninput="checkVal()">100+<input type="number" id="sum" oninput="checkVal()"><p id="output"></p>
+    </form>
+
+    <input type="range"  id="temp" min="0" max="120" oninput="checkTemp()">
+    <p></p>
+
+    <script>
+        function checkTemp(){
+            var temv = document.getElementById('temp').value
+            var temp = document.getElementById('temp')
+            const temdis = document.createElement('p')
+            if (temv == 75){
+                temdis.style.backgroundColor = 'green'
+            }else{
+                temdis.style.backgroundColor = 'yellow'
+            }
+            temdis.innerHTML = temv
+            document.getElementById('bod').lastElementChild.remove()
+            document.getElementById('bod').appendChild(temdis)
+        }
+        function checkVal(){
+            var out = document.getElementById('output')
+            var rang = document.getElementById('rang')
+            var summ = document.getElementById('sum')
+            var ran = parseInt(rang.value)
+            var sum = parseInt(summ.value)
+
+            out.innerHTML = ` = ` + (ran + sum)
+        }
+    </script>
+
+</body>
+</html>
